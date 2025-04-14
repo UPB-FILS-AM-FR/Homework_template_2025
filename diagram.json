@@ -1,0 +1,340 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 67.8, "left": 105, "attrs": {} },
+    { "type": "wokwi-microsd-card", "id": "sd1", "top": -18.97, "left": -134.33, "attrs": {} },
+    { "type": "wokwi-lcd1602", "id": "lcd1", "top": -447.77, "left": 54.4, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -228,
+      "left": -7.8,
+      "attrs": { "volume": "0.1" }
+    },
+    { "type": "wokwi-rgb-led", "id": "rgb1", "top": -466.4, "left": 509.9, "attrs": {} },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "ntc1",
+      "top": 396.3,
+      "left": 95.9,
+      "rotate": 270,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-mpu6050",
+      "id": "imu1",
+      "top": 281.38,
+      "left": 530.92,
+      "rotate": 270,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-pushbutton-6mm",
+      "id": "btn1",
+      "top": 141.8,
+      "left": 441.6,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton-6mm",
+      "id": "btn2",
+      "top": 65,
+      "left": 441.6,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    { "type": "wokwi-slide-switch", "id": "sw2", "top": -206.8, "left": 319.9, "attrs": {} },
+    { "type": "wokwi-slide-switch", "id": "sw3", "top": -206.8, "left": 396.7, "attrs": {} },
+    { "type": "wokwi-slide-switch", "id": "sw4", "top": -206.8, "left": 463.9, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -379.2,
+      "left": 479.45,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -379.2,
+      "left": 508.25,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": -379.2,
+      "left": 527.45,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": 384.77,
+      "left": 511.54,
+      "rotate": 270,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text1",
+      "top": 422.4,
+      "left": 345.6,
+      "attrs": { "text": "sda" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text2",
+      "top": 364.8,
+      "left": 374.4,
+      "attrs": { "text": "scl" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text9",
+      "top": -240,
+      "left": 355.2,
+      "attrs": { "text": "SW_LCD_LED-RGB" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text10",
+      "top": 172.8,
+      "left": 432,
+      "attrs": { "text": "BTN_B" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text11",
+      "top": 28.8,
+      "left": 432,
+      "attrs": { "text": "BTN_A" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text12",
+      "top": 297.6,
+      "left": 604.8,
+      "rotate": 90,
+      "attrs": { "text": "MPU6050" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text13",
+      "top": 499.2,
+      "left": 144,
+      "attrs": { "text": "TEMP" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text14",
+      "top": -614.4,
+      "left": -883.2,
+      "attrs": {
+        "text": "#ifndef GP_H_\n#define GP_H_\n\n#include <avr/io.h>\n\n//LCD\n#define LCD_RS       PD7\n#define LCD_RW       PD1\n\n#define LCD_D4_SW1   PD3\n#define LCD_D5       PD4\n#define LCD_D6_SW2   PD5\n#define LCD_D7_SW3   PD6\n\n#define LCD_EN       PB0\n\n//LED\n#define LED_R_SW1    PD3\n#define LED_G_SW2    PD5\n#define LED_B_SW3    PD6\n\n//BUZZER\n#define BUZZER       PB1\n\n//SPI SD \n#define SD_CS        PB2\n#define SD_MOSI      PB3\n#define SD_MISO      PB4\n#define SD_SCK       PB5\n\n//MISC\n#define TEMP_SENSOR    PC0\n#define BTN_A          PD2 //INT0\n#define BTN_B          PC3\n#define POTENTIOMETER  PC1\n\n//I2C\n#define I2C_SDA      PC4\n#define I2C_SCL      PC5\n\n\n// DDRn PORTn PINn\n#define DDR_LCD_LED   DDRD\n#define DDR_SD_SPI    DDRB\n#define DDR_I2C_MISC  DDRC\n\n#define PORT_LCD_LED   PORTD\n#define PORT_SD_SPI    PORTB\n#define PORT_I2C_MISC  PORTC\n\n\n#define PIN_LCD_LED   PIND\n#define PIN_SD_SPI    PINB\n#define PIN_I2C_MISC  PINC\n\n//BUZZER DDR & PORT\n#define DDR_BUZZER     DDRB\n#define PORT_BUZZER    PORTB\n\n//LCD_EN DDR & PORT\n#define DDR_LCD_EN     DDRB\n#define PORT_LCD_EN    PORTB\n\n//BTN_A DDR & PORT & PIN & INT & PCINT\n#define DDR_BTN_A    DDRD\n#define PORT_BTN_A   PORTD\n#define PIN_BTN_A    PIND\n#define INT_BTN_A    INT0\n#define PCINT_BTN_A  PCINT18\n\n\n//BTN_B DDR & PORT & PIN & PCINT\n#define DDR_BTN_B    DDRC\n#define PORT_BTN_B   PORTC\n#define PIN_BTN_B    PINC\n#define PCINT_BTN_B  PCINT11\n\n#endif // GP_H_"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text15",
+      "top": -489.6,
+      "left": 931.2,
+      "attrs": {
+        "text": "Note:\n\nMPL3115 ->                          -\nAmbient Light Sensor ->     -\n\nLSM9DS0 ->                       MPU6050\n\nBTN_1 (PB2) ->                   BTN_A\nBTN_2 (PD6) ->                  BTN_B\nBTN1-6 -> POTENTIOMETER\n\n"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r16",
+      "top": -264,
+      "left": 210.65,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text17",
+      "top": -489.6,
+      "left": 153.6,
+      "attrs": { "text": "TEXT LCD 2X16" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text18",
+      "top": -489.6,
+      "left": 499.2,
+      "attrs": { "text": "RGB LED" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text19",
+      "top": -57.6,
+      "left": -134.4,
+      "attrs": { "text": "SD CARD" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text20",
+      "top": 412.8,
+      "left": 604.8,
+      "rotate": 90,
+      "attrs": { "text": "OLED I2C" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text21",
+      "top": -249.6,
+      "left": 0,
+      "attrs": { "text": "BUZZER" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text16",
+      "top": 28.8,
+      "left": 336,
+      "rotate": 90,
+      "attrs": { "text": "UART" }
+    },
+    {
+      "type": "wokwi-vcc",
+      "id": "vcc1",
+      "top": 273.6,
+      "left": 197.76,
+      "rotate": 270,
+      "attrs": {}
+    },
+    { "type": "wokwi-gnd", "id": "gnd1", "top": 278.4, "left": 268.2, "attrs": {} },
+    {
+      "type": "wokwi-vcc",
+      "id": "vcc2",
+      "top": -260.16,
+      "left": 86.6,
+      "rotate": 180,
+      "attrs": {}
+    },
+    { "type": "wokwi-gnd", "id": "gnd2", "top": -288, "left": 66.6, "attrs": {} },
+    {
+      "type": "wokwi-vcc",
+      "id": "vcc3",
+      "top": -231.36,
+      "left": 230.6,
+      "rotate": 180,
+      "attrs": {}
+    },
+    { "type": "wokwi-gnd", "id": "gnd3", "top": -288, "left": 268.2, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd5", "top": 374.4, "left": 95.4, "attrs": {} },
+    {
+      "type": "wokwi-vcc",
+      "id": "vcc4",
+      "top": 331.2,
+      "left": 111.36,
+      "rotate": 270,
+      "attrs": {}
+    },
+    { "type": "wokwi-gnd", "id": "gnd7", "top": 163.2, "left": 489, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd8", "top": 96, "left": 489, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd9", "top": -124.8, "left": -0.6, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd10", "top": 67.2, "left": -39, "attrs": {} },
+    { "type": "wokwi-vcc", "id": "vcc5", "top": -56.84, "left": -28.8, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd11", "top": -278.4, "left": 114.6, "attrs": {} },
+    {
+      "type": "wokwi-vcc",
+      "id": "vcc6",
+      "top": 417.6,
+      "left": 408.96,
+      "rotate": 270,
+      "attrs": {}
+    },
+    { "type": "wokwi-gnd", "id": "gnd12", "top": 451.2, "left": 479.4, "attrs": {} },
+    { "type": "wokwi-vcc", "id": "vcc7", "top": 230.92, "left": 529.44, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd13", "top": 287.76, "left": 442.44, "attrs": {} },
+    { "type": "wokwi-vcc", "id": "vcc8", "top": -469.64, "left": 460.8, "attrs": {} },
+    { "type": "wokwi-junction", "id": "j1", "top": 379.2, "left": 465.6, "attrs": {} },
+    { "type": "wokwi-junction", "id": "j2", "top": 408, "left": 350.4, "attrs": {} },
+    {
+      "type": "wokwi-text",
+      "id": "text3",
+      "top": -220.8,
+      "left": 931.2,
+      "attrs": {
+        "text": "Note:\nVoltage divider are not simulated correctly. \nCannot multiplex buttons. "
+      }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot1",
+      "top": 414.9,
+      "left": 260.2,
+      "rotate": 180,
+      "attrs": {}
+    },
+    { "type": "wokwi-gnd", "id": "gnd4", "top": 366.2, "left": 316.6, "rotate": 180, "attrs": {} },
+    { "type": "wokwi-vcc", "id": "vcc9", "top": 365.56, "left": 268.8, "attrs": {} },
+    {
+      "type": "wokwi-text",
+      "id": "text4",
+      "top": 499.2,
+      "left": 240,
+      "attrs": { "text": "POTENTIOMETER" }
+    }
+  ],
+  "connections": [
+    [ "uno:4", "lcd1:D5", "green", [ "v-230.4", "h-130.6" ] ],
+    [ "uno:10", "sd1:CS", "green", [ "v-28.8", "h-200.9" ] ],
+    [ "uno:11", "sd1:DI", "green", [ "v-38.4", "h-191.4" ] ],
+    [ "uno:12", "sd1:DO", "green", [ "v0" ] ],
+    [ "uno:13", "sd1:SCK", "green", [ "v-57.6", "h-172.4" ] ],
+    [ "ntc1:OUT", "uno:A0", "green", [ "v-9.6", "h57.5" ] ],
+    [ "bz1:2", "uno:9", "orange", [ "v124.8", "h238.8" ] ],
+    [ "sw3:2", "uno:5", "#8f4814", [ "v153.6", "h-99.7" ] ],
+    [ "sw3:1", "lcd1:D6", "green", [ "v9.6", "h-172.8", "v0", "h-29" ] ],
+    [ "sw4:2", "uno:6", "#8f4814", [ "v163.2", "h-176.4" ] ],
+    [ "sw4:1", "lcd1:D7", "green", [ "v9.6", "h-259.5" ] ],
+    [ "sw2:2", "uno:3", "#8f4814", [ "v0" ] ],
+    [ "sw2:1", "lcd1:D4", "green", [ "h-144", "v-124.8" ] ],
+    [ "rgb1:R", "r1:1", "red", [ "h9.6", "v19.2", "h-9.6" ] ],
+    [ "rgb1:B", "r3:1", "blue", [ "h11.2", "v124.8" ] ],
+    [ "sw2:3", "r1:2", "red", [ "h38.6", "v-153.6", "h76.8" ] ],
+    [ "r3:2", "sw4:3", "blue", [ "h0", "v46.8" ] ],
+    [ "r16:1", "lcd1:A", "gold", [ "h0" ] ],
+    [ "uno:7", "lcd1:RS", "green", [ "v-115.2", "h-178.8", "v-259.2", "h-0.3" ] ],
+    [ "lcd1:E", "uno:8", "green", [ "v259.2", "h143.6" ] ],
+    [ "uno:5V", "vcc1:VCC", "red", [ "v0" ] ],
+    [ "gnd1:GND", "uno:GND.2", "black", [ "v0" ] ],
+    [ "vcc2:VCC", "lcd1:VDD", "red", [ "v0" ] ],
+    [ "gnd2:GND", "lcd1:VSS", "black", [ "v0" ] ],
+    [ "r16:2", "vcc3:VCC", "green", [ "h0" ] ],
+    [ "gnd3:GND", "lcd1:K", "black", [ "v-9.6", "h-19.2" ] ],
+    [ "vcc4:VCC", "ntc1:VCC", "red", [ "v0", "h28.8" ] ],
+    [ "ntc1:GND", "gnd5:GND", "black", [ "v0", "h-48" ] ],
+    [ "gnd9:GND", "bz1:1", "black", [ "v0" ] ],
+    [ "btn2:1.l", "uno:2", "gold", [ "h0" ] ],
+    [ "btn2:2.r", "gnd8:GND", "black", [ "h0" ] ],
+    [ "gnd7:GND", "btn1:2.r", "black", [ "v0" ] ],
+    [ "btn1:1.l", "uno:A3", "gold", [ "h-28.8", "v172.8", "h-76.8", "v-57.5" ] ],
+    [ "gnd10:GND", "sd1:GND", "black", [ "v0" ] ],
+    [ "sd1:VCC", "vcc5:VCC", "red", [ "h0" ] ],
+    [ "gnd11:GND", "lcd1:RW", "black", [ "v0" ] ],
+    [ "oled1:VCC", "vcc6:VCC", "red", [ "h0" ] ],
+    [ "gnd12:GND", "oled1:GND", "black", [ "v0" ] ],
+    [ "imu1:VCC", "vcc7:VCC", "red", [ "h0" ] ],
+    [ "gnd13:GND", "imu1:GND", "black", [ "v0" ] ],
+    [ "vcc8:VCC", "rgb1:COM", "red", [ "v28.8", "h57.5" ] ],
+    [ "j2:J", "uno:A4", "blue", [ "h-9.6", "v-153.5" ] ],
+    [ "uno:A5", "j1:J", "gray", [ "v134.3", "h90.7" ] ],
+    [ "oled1:SCL", "j1:J", "gray", [ "v-0.3", "h-76.8" ] ],
+    [ "oled1:SDA", "j2:J", "blue", [ "h0" ] ],
+    [ "j1:J", "imu1:SCL", "gray", [ "v-86.4", "h76.8" ] ],
+    [ "j2:J", "imu1:SDA", "blue", [ "h144", "v-162.88" ] ],
+    [ "rgb1:G", "r2:1", "green", [ "v0" ] ],
+    [ "r2:2", "sw3:3", "green", [ "h0", "v27.6", "h-96", "v144" ] ],
+    [ "vcc9:VCC", "pot1:VCC", "red", [ "v0" ] ],
+    [ "gnd4:GND", "pot1:GND", "black", [ "v0" ] ],
+    [ "pot1:SIG", "uno:A1", "green", [ "h0.4", "v-57.6", "h24.9" ] ]
+  ],
+  "dependencies": {}
+}
