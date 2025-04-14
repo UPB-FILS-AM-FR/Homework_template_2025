@@ -7,7 +7,7 @@
 
 ## Downloading and opening the project
 - Clone this repository:
-```git clone (https://github.com/UPB-FILS-AM-FR/Homework_template_2025.git)```
+```git clone https://github.com/UPB-FILS-AM-FR/Homework_template_2025.git```
 - Open with the project with platformio (click on the plaformio logo)
 <img src="platformio_menu.png" alt="drawing" width="200"/>
 
