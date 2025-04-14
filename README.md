@@ -14,9 +14,15 @@
 ## Project structure
 - `/include` : contains header files
 - `/src` : c source files
+
+## Important files
+- `include/gp.h`: contains the "pinout"/connections with the peripherals. You also have the connections written next to the schematic, if you open `diagram.json`.
 - `diagram.json`: hardware schematic
 - `platformio.ini`: platformio configuration file
 - `wokwi.toml`: wokwi configuration file
+
+
+
 
 ## How to Build and Run
 
@@ -40,7 +46,13 @@
 4. Run the program on the Wokwi simulator : 
 - If the Wokwi extension is installed, you should be able to click on the [diagram.json](diagram.json) file and see the board schematic.
 ![](board_schematic.png)
-- Click on the green play button in the left corner. The simulation should start.
+- Click on the green play button in the left corner. The simulation should start. 
+- 
+NOTE: **To switch between the RGB LED and the LCD please use toggle the 3 switches in the simulator by clicking on them**
+
+
+NOTE:
+  **To interact with input devices (potentiometer,buttons,TEMP) you need to click on them while the simulation is running.**
 
 ## Upload the homework
 
