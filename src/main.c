@@ -26,7 +26,7 @@
 #include "lab4.h"
 #endif
 
-#ifdef LAB5
+#ifdef LAB5#include "labs_en.h"
 #include "lab5.h"
 #endif
 
@@ -37,14 +37,22 @@
 
 int main(void){
 
+#ifndef LAB0
 USART0_init(CALC_USART_UBRR(PM_BAUD));
 USART0_use_stdio();
 
 
 USART0_print("dbg");
+#endif
 
-//CALL LABn SETUPS    
-#ifdef LAB3
+//CALL LABn SETUPS 
+#ifdef LAB0
+    setup_lab0(); 
+#elif defined LAB1
+    setup_lab1();
+#elif defined LAB2
+    setup_lab2();
+#elif defined LAB3
     setup_lab3();
 #elif defined LAB4
     setup_lab4();
@@ -59,8 +67,13 @@ USART0_print("dbg2");
 
 //CALL LABn LOOPS   
    for(;;){
-
-        #ifdef LAB3
+        #ifdef LAB0
+                loop_lab0();
+        #elif defined LAB1
+                loop_lab1();
+        #elif defined LAB2
+                loop_lab2();
+        #elif defined LAB3
                 loop_lab3();
         #elif defined LAB4
                 loop_lab4();
