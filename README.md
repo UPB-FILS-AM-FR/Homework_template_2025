@@ -9,6 +9,7 @@
 - Clone this repository:
 ```git clone https://github.com/UPB-FILS-AM-FR/Homework_template_2025.git```
 - Open with the project with platformio (click on the plaformio logo)
+  
 <img src="platformio_menu.png" alt="drawing" width="200"/>
 
 ## Project structure
@@ -47,7 +48,9 @@
 - If the Wokwi extension is installed, you should be able to click on the [diagram.json](diagram.json) file and see the board schematic.
 ![](board_schematic.png)
 - Click on the green play button in the left corner. The simulation should start. 
-- 
+- If you are using USART to print messages/debug, the output should appear in the `Wokwi terminal window` <img src="./doc_images/wokwi_term.png"  width="100">
+  
+
 NOTE: **To switch between the RGB LED and the LCD please use toggle the 3 switches in the simulator by clicking on them**
 
 
