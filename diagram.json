@@ -144,7 +144,7 @@
       "top": -489.6,
       "left": 931.2,
       "attrs": {
-        "text": "Note:\n\nMPL3115 ->                          -\nAmbient Light Sensor ->     -\n\nLSM9DS0 ->                       MPU6050\n\nBTN_1 (PB2) ->                   BTN_A\nBTN_2 (PD6) ->                  BTN_B\nBTN1-6 -> POTENTIOMETER\n\n"
+        "text": "Note:\n\nMPL3115 ->                          -\nAmbient Light Sensor ->     -\n\nLSM9DS0 ->                       MPU6050\n\nBTN_1 (PD2) ->                   BTN_A\nBTN_2 (PC3) ->                  BTN_B\nBTN1-6 -> POTENTIOMETER\n\n"
       }
     },
     {

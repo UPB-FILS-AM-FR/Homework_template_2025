@@ -8,12 +8,12 @@
 #endif
 // #define atmega324p_lab_board
 
-// #define LAB0
+//#define LAB0
 // #define LAB1
 // #define LAB2
 // #define LAB3
 // #define LAB4
-// #define LAB5
+ #define LAB5
 // #define LAB6
 
 

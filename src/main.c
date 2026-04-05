@@ -26,7 +26,7 @@
 #include "lab4.h"
 #endif
 
-#ifdef LAB5#include "labs_en.h"
+#ifdef LAB5
 #include "lab5.h"
 #endif
 
@@ -62,7 +62,7 @@ USART0_print("dbg");
     setup_lab6();
 #endif 
 
-USART0_print("dbg2");
+//USART0_print("dbg2");
 
 
 //CALL LABn LOOPS   
