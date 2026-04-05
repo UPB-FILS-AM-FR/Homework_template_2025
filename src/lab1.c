@@ -3,7 +3,8 @@
 #if defined(LAB1)
 #include "lab1.h"
 #include <util/delay.h>
-#include <usart.c>
+#include "usart.h"
+#include "gp.h"
 
 #define CLOCK_SPEED 12000000
 #define BAUD 9600
@@ -61,10 +62,16 @@ void speaker_morse(int tip)
 void setup_lab1(){
     USART0_init(MYUBRR);
     USART0_use_stdio();
+
+    DDR_BTN_A &= ~(1 << BTN_A);  // setam pinul butonului ca input
+    PORT_BTN_A |= (1 << BTN_A); // activam rez pull-up pentru buton
 }
 
 
 void loop_lab1(){
+    if (!(PIN_BTN_A & (1 << BTN_A))) {  // verificam daca butonul este apasat
+        USART0_print("Butonul 1 a fost apasat!\n");
+    }
 
 }
 
